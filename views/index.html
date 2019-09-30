@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            TO DO TASK LIST
+        </title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <style>
+            body{
+                background-color: gray;
+                color: #000;
+            }           
+            h1{
+                text-align: center;
+                margin-top: 150px;
+            }
+            p{
+                text-align: center;
+                margin: 10px;
+            }
+            .row{
+                margin-top: 10%;
+            }
+            .show{
+                padding: 10px;
+                font-size: 2em;
+                font-family: cursive;
+            }
+        </style>
+
+    </head>
+    <body>
+        <div class="row">
+            <form action="/add" method="POST" class="form col-md-6" autocomplete="off">
+                <div class="text-center">
+                    <input class="form-contol" type="text" name="task" placeholder="Add a work to do">
+                    <input  type="submit" name="submit" class="btn btn-primary" value="Add">
+                    </div>
+            </form>
+    
+            <div class="show col-md-6">
+                <ol>
+                {% for ajob in tasks %}
+                    <li>To-Do: {{ ajob.tasks }} <a href="/delete/{{ ajob._id }}"><input type="button" value="Delete" name="del"></a></li>
+                {% else %}
+                    <p1>No Jobs</p1>
+                {% endfor %}
+                </ol>
+            </div>
+        </div>
+        
+    </body>
+</html>
